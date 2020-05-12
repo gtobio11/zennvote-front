@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { VotePopularDescription, GrowVoteCard, UnitVoteCard } from "../presentation";
 import { SleepVoteCard, NewVoteCard } from "../presentation";
 
-export default function (pageStep:number, setCanPass: (canPass: boolean) => void):ReactNode {
+export default function (pageStep:number, setCanPass: (canPass: string | undefined) => void):ReactNode {
     switch(pageStep) {
         case 0:
             return <VotePopularDescription setCanPass={setCanPass} />

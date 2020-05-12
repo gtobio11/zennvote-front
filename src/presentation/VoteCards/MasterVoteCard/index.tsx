@@ -5,7 +5,7 @@ import * as CS from '../CommonStyles';
 import * as S from './Styles';
 
 interface MasterVoteCardProps {
-    setCanPass: (canPass: boolean) => void;
+    setCanPass: (canPass: string | undefined) => void;
 }
 
 const MasterVoteCard: React.FC<MasterVoteCardProps> = ({ setCanPass }) => {
@@ -34,7 +34,7 @@ const MasterVoteCard: React.FC<MasterVoteCardProps> = ({ setCanPass }) => {
             <CS.VoteCardsDivision />
           <SelectVote
             maximumSelect={3}
-            minimumSelect={2}
+            minimumSelect={1}
             setCanPass={setCanPass}
             voteCardName="master" />
         </CS.VoteCardsWrapper>

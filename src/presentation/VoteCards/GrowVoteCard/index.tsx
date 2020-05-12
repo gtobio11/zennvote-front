@@ -4,7 +4,7 @@ import { SelectVote } from '../../';
 import * as CS from '../CommonStyles';
 
 interface GrowVoteCardProps {
-    setCanPass: (canPass: boolean) => void;
+    setCanPass: (canPass: string | undefined) => void;
 }
 
 const GrowVoteCard: React.FC<GrowVoteCardProps> = ({ setCanPass }) => {

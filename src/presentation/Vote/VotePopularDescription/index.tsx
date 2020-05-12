@@ -3,12 +3,12 @@ import React, { useEffect } from 'react';
 import * as S from './Styles';
 
 interface VotePopularDescriptionProps {
-    setCanPass: (canPass: boolean) => void
+    setCanPass: (canPass: string | undefined) => void
 }
 
 const VotePopularDescription: React.FC<VotePopularDescriptionProps> = ({ setCanPass }) => {
     useEffect(() => {
-        setCanPass(true);
+        setCanPass(undefined);
     }, [setCanPass])
 
     return (
