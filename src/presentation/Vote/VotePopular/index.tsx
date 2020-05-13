@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { useSnackbar } from 'notistack';
 import RenderToVotePopular from '../../../controller/RenderToVotePopular';
 
 import * as S from './Styles';
@@ -11,7 +12,8 @@ interface VotePopularProps {
 
 const VotePopular = ({handleVotePart, isVoteBack, setIsVoteBack}:VotePopularProps) => {
     const [pageStep, setPageStep] = useState(isVoteBack? 4: 0);
-    const [canPass, setCanPass] = useState<boolean>(false);
+    const [canPass, setCanPass] = useState<string | undefined>('투표 정보를 입력해주세요.');
+    const { enqueueSnackbar } = useSnackbar();
 
     useEffect(() => {
         if(isVoteBack) {
@@ -25,16 +27,20 @@ const VotePopular = ({handleVotePart, isVoteBack, setIsVoteBack}:VotePopularProp
             setIsVoteBack(true);
             handleVotePart(-1);
         } else if(increasedPageStep > 4) {
-            if(canPass) {
+            if(canPass === undefined) {
                 handleVotePart(1);
+            } else {
+                enqueueSnackbar(canPass, { variant: 'error' });
             }
         } else {
-            if(increase > 0 && !canPass) return;
+            if (increase > 0 && canPass !== undefined) {
+                enqueueSnackbar(canPass, { variant: 'error' });
+                return;
+            }
 
-            setCanPass(false);
             setPageStep(increasedPageStep);
         }
-    }, [pageStep, handleVotePart, setIsVoteBack, canPass]);
+    }, [enqueueSnackbar, pageStep, handleVotePart, setIsVoteBack, canPass]);
 
     return (
         <S.VotePopularWrapper>

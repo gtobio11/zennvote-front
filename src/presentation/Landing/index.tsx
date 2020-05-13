@@ -16,7 +16,7 @@ const Landing = ({ setPageData }:LandingProps ) => {
     <>
       <S.LandingHeader>
         <S.LandingTitle>
-          전국 프로듀서 노래자랑 시즌 9
+          전국 프로듀서 노래자랑 시즌 10
         </S.LandingTitle>
         <S.LandingSubTitle>
           시청자 투표

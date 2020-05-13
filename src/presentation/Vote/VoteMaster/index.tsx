@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import * as S from './Styles';
 import { MasterVoteCard } from '../..';
+import { useSnackbar } from 'notistack';
 
 interface VoteMasterProps {
     handleVotePart: (increase:number) => void;
@@ -9,13 +10,20 @@ interface VoteMasterProps {
 }
 
 const VoteMaster = ({ handleVotePart, setIsVoteBack }:VoteMasterProps) => {
-    const [canPass, setCanPass] = useState<boolean>(false);
+    const [canPass, setCanPass] = useState<string | undefined>('필수 선택 사항입니다.');
+    const { enqueueSnackbar } = useSnackbar();
 
     const handleClickButton = useCallback((increase: number) => {
-        if(increase < 0) setIsVoteBack(true);
-        if(increase > 0 && !canPass) return ;
-        handleVotePart(increase);
-    }, [handleVotePart, setIsVoteBack, canPass]);
+        if(increase < 0) {
+            setIsVoteBack(true);
+        }
+        if (increase > 0) {
+            if (canPass !== undefined)
+                enqueueSnackbar(canPass, { variant: 'error' });
+            else
+                handleVotePart(increase);
+        }
+    }, [enqueueSnackbar, handleVotePart, setIsVoteBack, canPass]);
 
     return (
         <S.VoteMasterWrapper>

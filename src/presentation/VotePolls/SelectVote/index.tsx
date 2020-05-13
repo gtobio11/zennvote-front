@@ -11,7 +11,7 @@ interface SelectVoteProps {
     maximumSelect: number;
     minimumSelect: number;
     voteCardName: string;
-    setCanPass: (canPass: boolean) => void;
+    setCanPass: (canPass: string | undefined) => void;
 }
 
 const SelectVote = ({ maximumSelect, minimumSelect, voteCardName, setCanPass }: SelectVoteProps) => {
@@ -31,11 +31,12 @@ const SelectVote = ({ maximumSelect, minimumSelect, voteCardName, setCanPass }: 
 
     useEffect(() => {
         const inputCount = selectVoteData.filter(v => !!v).length || 0;
-        if(inputCount <= maximumSelect && inputCount >= minimumSelect) {
-            setCanPass(true);
-        } else {
-            setCanPass(false);
-        }
+        if (inputCount > maximumSelect) 
+            setCanPass(`최대 ${maximumSelect}개까지만 투표할 수 있습니다.`);
+        else if (inputCount < minimumSelect) 
+            setCanPass(`최소 ${minimumSelect}개 이상 투표해야합니다.`);
+        else
+            setCanPass(undefined);
 
     }, [selectVoteData, minimumSelect, maximumSelect, setCanPass])
 

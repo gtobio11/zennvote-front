@@ -1,10 +1,12 @@
 import React from 'react'
 
+import * as S from './Styles';
+
 const Finish = () => {
     return (
-        <div>
-            고생하셨습니다 ㅎㅎ
-        </div>
+        <S.FinishWrapper>
+            <span role='img' aria-label='congratulation-emoji'>🎊🎊🎊 긴 투표 참여해주셔서 감사합니다! 🎊🎊🎊</span>
+        </S.FinishWrapper>
     )
 }
 
