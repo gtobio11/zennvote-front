@@ -17,12 +17,11 @@ const VoteMaster = ({ handleVotePart, setIsVoteBack }:VoteMasterProps) => {
         if(increase < 0) {
             setIsVoteBack(true);
         }
-        if (increase > 0) {
-            if (canPass !== undefined)
-                enqueueSnackbar(canPass, { variant: 'error' });
-            else
-                handleVotePart(increase);
+        if (increase > 0 && canPass !== undefined) {
+            enqueueSnackbar(canPass, { variant: 'error' });
+            return;
         }
+        handleVotePart(increase);
     }, [enqueueSnackbar, handleVotePart, setIsVoteBack, canPass]);
 
     return (
