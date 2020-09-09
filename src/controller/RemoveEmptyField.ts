@@ -9,7 +9,7 @@ export default function(voteData: VoteData) {
         original: voteData.original?.filter(v => !!v.song && !!v.producer),
         sleep: voteData.sleep?.filter(v => !!v.song && !!v.producer),
         unit: voteData.unit?.filter(v => !!v),
-        new: voteData.new?.filter(v => !!v),
+        rookie: voteData.rookie?.filter(v => !!v),
         grow: voteData.grow?.filter(v => !!v),
         master: voteData.master?.filter(v => !!v),
         custom: voteData.custom,

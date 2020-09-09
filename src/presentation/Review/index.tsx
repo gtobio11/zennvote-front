@@ -204,7 +204,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                     성장하는 프로듀서 상
                                 </S.ReviewContentItemTitle>
                                 {
-                                    willFetchData.data.grow?.map((v) => (
+                                    willFetchData.data.rookie?.map((v) => (
                                         <S.ReviewContentItem key={v}>
                                             <S.ReviewContentItemTop>
                                                 {v}

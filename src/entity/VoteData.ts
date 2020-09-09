@@ -11,7 +11,7 @@ export default interface VoteData {
   original?: EpisodeData[];
   sleep?: EpisodeData[];
   unit?: string[];
-  new?: string[];
+  rookie?: string[];
   grow?: string[];
   master?: string[];
   custom?: {

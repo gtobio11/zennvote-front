@@ -12,7 +12,7 @@ import FunnyVoteCard from './VoteCards/FunnyVoteCard';
 import ContentVoteCard from './VoteCards/ContentVoteCard';
 import OriginalVoteCard from './VoteCards/OriginalVoteCard';
 import SleepVoteCard from './VoteCards/SleepVoteCard';
-import NewVoteCard from './VoteCards/NewVoteCard';
+import RookieVoteCard from './VoteCards/RookieVoteCard';
 import GrowVoteCard from './VoteCards/GrowVoteCard';
 import UnitVoteCard from './VoteCards/UnitVoteCard';
 import MasterVoteCard from './VoteCards/MasterVoteCard';
@@ -49,7 +49,7 @@ export {
   ContentVoteCard,
   OriginalVoteCard,
   SleepVoteCard,
-  NewVoteCard,
+  RookieVoteCard,
   MessageVoteCard,
   CustomVoteCard,
   VoteFivePart,

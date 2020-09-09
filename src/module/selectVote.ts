@@ -4,13 +4,13 @@ export interface SelectVoteState {
     [key: string]: string[]
 
     unit: string[];
-    new: string[];
+    rookie: string[];
     grow: string[];
 }
 
 const initialState: SelectVoteState = {
     unit: [],
-    new: [],
+    rookie: [],
     grow: [],
 };
 

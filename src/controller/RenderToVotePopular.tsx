@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { VotePopularDescription, GrowVoteCard, UnitVoteCard } from "../presentation";
-import { SleepVoteCard, NewVoteCard } from "../presentation";
+import { SleepVoteCard, RookieVoteCard } from "../presentation";
 
 export default function (pageStep:number, setCanPass: (canPass: string | undefined) => void):ReactNode {
     switch(pageStep) {
@@ -9,7 +9,7 @@ export default function (pageStep:number, setCanPass: (canPass: string | undefin
         case 1:
             return <SleepVoteCard setCanPass={setCanPass} />
         case 2:
-            return <NewVoteCard setCanPass={setCanPass} />
+            return <RookieVoteCard setCanPass={setCanPass} />
         case 3:
             return <GrowVoteCard setCanPass={setCanPass} />
         case 4:
